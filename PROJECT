@@ -1,0 +1,9 @@
+domain: infinispan.org
+layout:
+- go.kubebuilder.io/v3
+plugins:
+  manifests.sdk.operatorframework.io/v2: {}
+  scorecard.sdk.operatorframework.io/v2: {}
+projectName: sidecar-poc
+repo: github.com/infinispan/sidecar-poc
+version: "3"
