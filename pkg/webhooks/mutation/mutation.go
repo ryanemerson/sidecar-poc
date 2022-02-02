@@ -59,8 +59,12 @@ func (a *CacheInjector) InjectDecoder(d *admission.Decoder) error {
 
 func addSideCarContainer(pod *corev1.Pod) {
 	container := corev1.Container{
-		Name:  "caching-sidecar",
-		Image: "quay.io/infinispan/server",
+		Name:  "envoy-sidecar",
+		Image: "quay.io/remerson/envoy",
+		Env: []corev1.EnvVar{{
+			Name:  "ENVOY_UID",
+			Value: "0",
+		}},
 	}
 	for i, c := range pod.Spec.Containers {
 		if c.Name == container.Name {
